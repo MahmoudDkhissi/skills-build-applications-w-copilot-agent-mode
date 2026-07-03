@@ -1,9 +1,8 @@
 import ResourcePage from './ResourcePage';
 
-const apiPath = '/api/users/';
 const apiEndpoint = import.meta.env.VITE_CODESPACE_NAME
-  ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev${apiPath}`
-  : `http://localhost:8000${apiPath}`;
+  ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/users/`
+  : 'http://localhost:8000/api/users/';
 
 export default function Users() {
   return (

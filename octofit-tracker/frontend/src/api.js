@@ -10,6 +10,10 @@ export function getApiBaseUrl() {
 }
 
 export function buildApiUrl(path) {
+  if (path.startsWith('http://') || path.startsWith('https://')) {
+    return path;
+  }
+
   return new URL(path, `${getApiBaseUrl().replace(/\/$/, '')}/`).toString();
 }
 

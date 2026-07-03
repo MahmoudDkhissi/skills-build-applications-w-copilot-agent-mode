@@ -1,9 +1,14 @@
 import ResourcePage from './ResourcePage';
 
+const apiPath = '/api/teams/';
+const apiEndpoint = import.meta.env.VITE_CODESPACE_NAME
+  ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev${apiPath}`
+  : `http://localhost:8000${apiPath}`;
+
 export default function Teams() {
   return (
     <ResourcePage
-      endpoint="/api/teams/"
+      endpoint={apiEndpoint}
       title="Teams"
       description="Track squads, coaching staff, and current leaderboard points."
       emptyMessage="No teams are available yet."

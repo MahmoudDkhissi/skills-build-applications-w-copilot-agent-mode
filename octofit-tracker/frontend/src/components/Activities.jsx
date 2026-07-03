@@ -1,5 +1,10 @@
 import ResourcePage from './ResourcePage';
 
+const apiPath = '/api/activities/';
+const apiEndpoint = import.meta.env.VITE_CODESPACE_NAME
+  ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev${apiPath}`
+  : `http://localhost:8000${apiPath}`;
+
 function formatDate(value) {
   if (!value) {
     return 'Unavailable';
@@ -13,7 +18,7 @@ function formatDate(value) {
 export default function Activities() {
   return (
     <ResourcePage
-      endpoint="/api/activities/"
+      endpoint={apiEndpoint}
       title="Activities"
       description="Inspect training sessions, duration, calories, and activity timing."
       emptyMessage="No activities are available yet."

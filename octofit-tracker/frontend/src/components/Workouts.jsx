@@ -1,9 +1,14 @@
 import ResourcePage from './ResourcePage';
 
+const apiPath = '/api/workouts/';
+const apiEndpoint = import.meta.env.VITE_CODESPACE_NAME
+  ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev${apiPath}`
+  : `http://localhost:8000${apiPath}`;
+
 export default function Workouts() {
   return (
     <ResourcePage
-      endpoint="/api/workouts/"
+      endpoint={apiEndpoint}
       title="Workouts"
       description="Browse recommended routines and their difficulty levels."
       emptyMessage="No workouts are available yet."

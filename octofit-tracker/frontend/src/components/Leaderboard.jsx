@@ -1,9 +1,14 @@
 import ResourcePage from './ResourcePage';
 
+const apiPath = '/api/leaderboard/';
+const apiEndpoint = import.meta.env.VITE_CODESPACE_NAME
+  ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev${apiPath}`
+  : `http://localhost:8000${apiPath}`;
+
 export default function Leaderboard() {
   return (
     <ResourcePage
-      endpoint="/api/leaderboard/"
+      endpoint={apiEndpoint}
       title="Leaderboard"
       description="See the current ranking table and score totals."
       emptyMessage="No leaderboard entries are available yet."
